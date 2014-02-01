@@ -1,8 +1,9 @@
 #main-screen{
 	margin-top: 0px;
 	background-color: #fc6d81;
+	position: fixed;
 }
 
 #door-locked-screen{
-	margin-top: 0px;
+	position: fixed;
 }
