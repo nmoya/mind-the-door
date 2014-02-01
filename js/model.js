@@ -67,7 +67,7 @@ function getLastInteraction(inCallback) {
         var last_interaction;
         if (cursor) {
             last_interaction = new Interaction(cursor.value.id, cursor.value.lockedAt);
-            cursor.continue();
+            cursor.continue(); 
         }
         inCallback(null, last_interaction);
 
