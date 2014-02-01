@@ -1,6 +1,6 @@
 
 
-var mainScreen, doorLockedScreen;
+var mainScreen, doorLockedScreen, current_screen;
 
 
 function backathome()
@@ -18,6 +18,7 @@ function backathome()
     mainScreen.classList.remove("hidden");
     doorLockedScreen.classList.add("hidden");
 
+
 }
 function lockthedoor(){
     mainScreen.classList.add("hidden");
@@ -28,7 +29,7 @@ function lockthedoor(){
     });
 
     //setTimeout(backathome, 480000); // 8 hours
-    setTimeout(backathome, 5000); // 5 seconds
+    setTimeout(backathome, 5000);
 }
 
 window.onload = function () {

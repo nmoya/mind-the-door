@@ -64,12 +64,16 @@ function getLastInteraction(inCallback) {
 
     objectStore.openCursor().onsuccess = function (event) {
         var cursor = event.target.result;
-        var last_interaction;
+        var last_interaction = new Interaction(0, 0);
         if (cursor) {
             last_interaction = new Interaction(cursor.value.id, cursor.value.lockedAt);
+            console.log(cursor.value);
             cursor.continue(); 
         }
-        inCallback(null, last_interaction);
-
+        else
+        {
+            console.log("last_interaction: " + last_interaction.lockedAt/1000 + "s");
+            inCallback(null, last_interaction);
+        }
     };
 }
