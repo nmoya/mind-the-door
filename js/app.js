@@ -43,7 +43,9 @@ window.onload = function () {
 
     // All the listeners for the interface buttons and for the input changes
     document.getElementById("btn-lock-door").addEventListener("click", lockthedoor);
+    document.getElementById("btn-lock-door").addEventListener("touchstart", lockthedoor);
     document.getElementById("btn-come-back-home").addEventListener("click", backathome);
+    document.getElementById("btn-lock-door").addEventListener("touchstart", backathome);
 
     // the entry point for the app is the following command
     backathome();
