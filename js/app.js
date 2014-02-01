@@ -5,12 +5,32 @@ var mainScreen, doorLockedScreen;
 
 function backathome()
 {
-    mainScreen.style.visibility="visible";
-    doorLockedScreen.style.visibility="hidden";
+    if (!db) {
+        // HACK:
+        // this condition may happen upon first time use when the
+        // indexDB storage is under creation and refreshMemoList()
+        // is called. Simply waiting for a bit longer before trying again
+        // will make it work.
+        console.warn("Database is not ready yet");
+        setTimeout(backathome, 100);
+        return;
+    }
+    mainScreen.classList.remove("hidden");
+    doorLockedScreen.classList.add("hidden");
+
+    getLastInteraction(function(interaction) {
+            var timeNow = Date.now();
+            console.log(interaction);
+            console.log(timeNow - interaction.lockedAt);
+        });
 }
 function lockthedoor(){
-    mainScreen.style.visibility="hidden";
-    doorLockedScreen.style.visibility="visible";
+    mainScreen.classList.add("hidden");
+    doorLockedScreen.classList.remove("hidden");
+
+    saveInteraction(new DoorInteraction(), function () {
+        console.log("Interaction saved!");
+    });
 }
 
 window.onload = function () {
