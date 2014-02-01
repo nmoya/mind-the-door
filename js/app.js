@@ -33,6 +33,7 @@ function lockthedoor(){
     document.getElementById("label-time-ago").innerHTML = "Last time locked: " + door.lockedAt;
 
     //setTimeout(backathome, 480000); // 8 hours
+    //setTimeout(backathome, 5000); // 8 hours
 }
 
 window.onload = function () {
