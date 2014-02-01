@@ -41,9 +41,17 @@ request.onupgradeneeded = function (event) {
 
 //Door interaction constructor
 function DoorInteraction(){
+    function pad(number){
+        str = ''
+        if (number < 10)
+            str = "0" + number;
+        else
+            str = number;
+        return str;
+    }
     this.raw_time = Date.now();
     d = new Date();
-    this.lockedAt = d.getHours() + ":" + d.getMinutes() + " (" + d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear() + ")";
+    this.lockedAt = pad(d.getHours()) + ":" + pad(d.getMinutes()) + " &nbsp - &nbsp" + pad(d.getDate()) + "/" + pad(d.getMonth()) + "/" + d.getFullYear();
 }
 
 function Interaction(id, lockedAt){
