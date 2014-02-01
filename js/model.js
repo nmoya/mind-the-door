@@ -51,7 +51,7 @@ function DoorInteraction(){
     }
     this.raw_time = Date.now();
     d = new Date();
-    this.lockedAt = pad(d.getHours()) + ":" + pad(d.getMinutes()) + " &nbsp - &nbsp" + pad(d.getDate()) + "/" + pad(d.getMonth()) + "/" + d.getFullYear();
+    this.lockedAt = pad(d.getHours()) + ":" + pad(d.getMinutes()) + "&nbsp - &nbsp" + pad(d.getDate()) + "/" + pad(d.getMonth()) + "/" + d.getFullYear();
 }
 
 function Interaction(id, lockedAt){
