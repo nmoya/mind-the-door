@@ -15,6 +15,13 @@ body{
 	background-color: 
 }
 
+section{
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+}
+
 button{
 	border: 0;
 	outline: 0;
@@ -23,8 +30,12 @@ button{
 
 h1{
 	font-family: 'geniusthin';
-	font-size: 1em;
+	font-size: 1.6em;
 	color: #fff;
+	text-align: center;
+}
+
+p{
 	text-align: center;
 }
 
@@ -54,4 +65,5 @@ h1{
 	font-size: 18em;
 	color: #4ca5a0;
 }
+
 
