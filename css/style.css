@@ -1,3 +1,7 @@
+body{
+	background-color: 
+}
+
 #main-screen{
 	margin-top: 0px;
 	background-color: #fc6d81;
@@ -10,4 +14,17 @@
 
 .hidden{
 	visibility: hidden;
+}
+
+/* Design icone cadeados*/
+
+.icon-lock-open{
+	font-size: 18em;
+	color: #d6566b;
+}
+
+button{
+	border: 0;
+	outline: 0;
+	background: none;
 }
