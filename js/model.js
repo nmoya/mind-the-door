@@ -41,7 +41,7 @@ request.onupgradeneeded = function (event) {
 
 //Door interaction constructor
 function DoorInteraction(){
-    this.lockedAt = Date.now();
+    this.lockedAt = new Date();
 }
 
 function Interaction(id, lockedAt){
@@ -54,7 +54,7 @@ function saveInteraction(interaction, inCallback) {
     var request = db.transaction(["mindthedoor"], "readwrite").objectStore("mindthedoor").put(interaction);
 
     request.onsuccess = function (event) {
-        inCallback();
+        inCallback(interaction);
     };
 }
 
@@ -67,13 +67,10 @@ function getLastInteraction(inCallback) {
         var last_interaction = new Interaction(0, 0);
         if (cursor) {
             last_interaction = new Interaction(cursor.value.id, cursor.value.lockedAt);
-            console.log(cursor.value);
+            console.log(last_interaction);
             cursor.continue(); 
         }
-        else
-        {
-            console.log("last_interaction: " + last_interaction.lockedAt/1000 + "s");
-            inCallback(null, last_interaction);
-        }
+        console.log("last_interaction: " + last_interaction.lockedAt);
+        inCallback(null, last_interaction);
     };
 }

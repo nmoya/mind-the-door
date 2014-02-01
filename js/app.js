@@ -17,16 +17,20 @@ function backathome()
     }
     mainScreen.classList.remove("hidden");
     doorLockedScreen.classList.add("hidden");
-
+    getLastInteraction(function(err, interaction){
+        //console.log(interaction);
+    })
 
 }
 function lockthedoor(){
     mainScreen.classList.add("hidden");
     doorLockedScreen.classList.remove("hidden");
 
-    saveInteraction(new DoorInteraction(), function () {
+    door = new DoorInteraction();
+    saveInteraction(door, function () {
         console.log("Interaction saved!");
     });
+    document.getElementById("label-time-ago").innerHTML = "You locked your door at: " + door.lockedAt;
 
     //setTimeout(backathome, 480000); // 8 hours
     setTimeout(backathome, 5000);
